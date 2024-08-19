@@ -1,0 +1,14 @@
+sources:
+  app_logs:
+    type: prometheus_scrape
+    endpoints: 
+      - "SOURCEURL" 
+
+sinks:
+  victoria:
+    type: "prometheus_remote_write"
+    inputs: 
+      - "app_logs"
+    endpoint: "SINKURL"
+    healthcheck:
+      enabled: false

@@ -1,0 +1,6 @@
+FROM timberio/vector:0.39.0-alpine
+
+COPY vector.yaml /etc/vector/vector.yaml
+COPY update_vector_endpoints.sh /usr/bin/update_vector_endpoints.sh
+RUN chmod +x /usr/bin/update_vector_endpoints.sh
+ENTRYPOINT /usr/bin/update_vector_endpoints.sh
